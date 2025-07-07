@@ -1,0 +1,14 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: index-html
+  labels:
+    app: index-html
+spec:
+  selector:
+    app: index-html
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: NodePort
