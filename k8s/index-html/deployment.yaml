@@ -1,0 +1,32 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: index-html
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: index-html
+  template:
+    metadata:
+      labels:
+        app: index-html
+    spec:
+      containers:
+      - name: index
+        image: rjshsynectiks/index-html-kaniko:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: index-html
+spec:
+  selector:
+    app: index-html
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  type: NodePort
