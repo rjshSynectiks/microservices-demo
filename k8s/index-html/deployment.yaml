@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: index
-        image: registry.default.svc.cluster.local:5000/index-html-kaniko:latest
+        image: rjshsynectiks/index-html-kaniko:latest
         ports:
         - containerPort: 80
 ---
